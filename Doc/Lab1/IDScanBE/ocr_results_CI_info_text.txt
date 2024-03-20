@@ -1,0 +1,36 @@
+IE
+ROMANE
+ROMANIA
+CARTE
+CARTE
+DE IDENTITATE
+D'IDENTITE
+Identtt
+SERIA
+SB
+NR
+936387
+CARD
+CNP
+6020528324792
+Nume/Nom/Last name
+NOO16
+OPRISIU
+Prenume Prenom/First name
+BIANCA-ELENA
+Cetatenie Nationalite/Nationality
+Sex/Sexe/ Sex
+Romana
+1
+ROU
+F
+Loc nastere/Lieu de naissance/Place of birth
+Jud.SB Mun.Sibiu
+Domiciliu/Adresse/Address
+Jud.SB Mun.Sibiu
+Str George Mihail Zamfirescu nr.12
+B
+Emisa delDelivree parllssued by
+Valabilitate/ Validite/Validity
+SPCLEP Sibiu
+07.07.20-28.05.2027
