@@ -4,6 +4,7 @@ import easyocr
 from PIL import Image
 import re
 
+import DetectMRZ
 import ImageOrientation
 from PersonalInformation import PersonalInformation
 # import Validations
@@ -119,13 +120,14 @@ def detectFaces(img):
             print("Face 1 is more on the left")
             X, Y, W, H = face1
         else:
+            print("Face 2 is more on the left")
             X, Y, W, H = face2
 
+    #TODO: gaseste o formula mai buna sau scapa de formula
     #imparte in cele 3+1 cadrane imaginea
-    cv2.rectangle(img, (X + W + int(W * 0.25), Y - int(H * 0.5)), (X + int(5.25 * W), Y + int(2.23 * H)), (255, 0, 0),
-                  3)
-    cv2.rectangle(img, (X - int(W * 0.25), Y + int(H * 2.15)), (X + int(5.25 * W), Y + int(3 * H)), (0, 0, 255), 3)
-    cv2.rectangle(img, (X - int(W * 0.5), Y - int(H)), (X + int(1.25 * W), Y - H + int(0.6 * H)), (255, 0, 255), 3)
+    # cv2.rectangle(img, (X + W + int(W * 0.25), Y - int(H * 0.5)), (X + int(5.25 * W), Y + int(2.23 * H)), (255, 0, 0), 3)
+    # cv2.rectangle(img, (X - int(W * 0.25), Y + int(H * 2.15)), (X + int(5.25 * W), Y + int(3 * H)), (0, 0, 255), 3)
+    # cv2.rectangle(img, (X - int(W * 0.5), Y - int(H)), (X + int(1.25 * W), Y - H + int(0.6 * H)), (255, 0, 255), 3)
 
     input_image_path = "gray_image.jpg"
 
@@ -191,11 +193,20 @@ def getInfoFromText(personal_information):
             else:
                 personal_information['place_of_birth'] = next_line
         elif current_line.startswith("Dom"):
-            personal_information['address'] = next_line + ' ' +lines[i + 2].strip()
+            personal_information['address'] = next_line + ' ' + lines[i + 2].strip()
         elif current_line.startswith("Emis"):
-            personal_information['issued_by'] = lines[i + 2].strip()
+            if len(lines)-1+2 <= i+2:
+                personal_information['issued_by'] = lines[i + 2].strip()
+            else:
+                # print("list index out of range -> nu s-a citit randul respectiv din poza")
+                personal_information['issued_by'] = ''
         elif current_line.startswith("Val"):
-            personal_information['validity'] = lines[i + 2].strip()
+            if len(lines)-1+2 <= i+2:
+                personal_information['validity'] = lines[i + 2].strip()
+            else:
+                # print("list index out of range -> nu s-a citit randul respectiv din poza")
+                personal_information['validity'] = ''
+
 
         if i == len(lines) - 2 and next_line.startswith("ap"):
             personal_information['address'] = personal_information['address'] + " " + next_line
@@ -205,7 +216,9 @@ def getInfoFromCI(img):
     # img = cv2.imread(image_path)
     img_path = "image0.jpeg"
 
+    print("START DETECT FACES")
     detectFaces(img)
+    print("END DETECT FACES")
 
     personal_information = {
         'seria': "",

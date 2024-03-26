@@ -8,12 +8,14 @@ from PersonalInformation import PersonalInformation
 
 
 # rotatedImage=ImageOrientation.rotateImg(img)
-image_path = "D:\Bia\College\Licenta\CI_DataSet\IDcard\WhatsApp Image 2023-03-28 at 15.07.30.jpeg"
+# image_path = "D:\Bia\College\Licenta\CI_DataSet\IDcard\WhatsApp Image 2023-03-28 at 15.07.30.jpeg"
 image_path='D:\Bia\College\Licenta\Buletine\WhatsApp Image 2023-03-28 at 15.07.27.jpeg'
 
 image = cv2.imread(image_path)
 
-personal_information=FaceRecognition.getInfoFromCI(image)
+personal_information = FaceRecognition.getInfoFromCI(image)
+
+print("O IESIT DIN FaceRecognition.getInfoFromCI(image)")
 
 Person1 = PersonalInformation(
         seria=personal_information['seria'],
@@ -27,8 +29,9 @@ Person1 = PersonalInformation(
         address=personal_information['address'],
         issued_by=personal_information['issued_by'],
         validity=personal_information['validity'],
-        mrz=DetectMRZ.readMRZ(DetectMRZ.detectMRZ("rotatedImage.jpg")),
+        # mrz="",
+        mrz=DetectMRZ.detectMRZ("rotatedImage.jpg"),
         id=id
     )
 
-print(Person1)
+print("SFARSIT")

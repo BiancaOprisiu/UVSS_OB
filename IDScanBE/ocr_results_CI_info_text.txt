@@ -1,11 +1,11 @@
 IE
-ROMANE
+ROMANT
 ROMANIA
 CARTE
 CARTE
-DE IDENTITATE
+DE IDENTIIAE
 D'IDENTITE
-Identtt
+identity
 SERIA
 SB
 NR
@@ -18,7 +18,7 @@ NOO16
 OPRISIU
 Prenume Prenom/First name
 BIANCA-ELENA
-Cetatenie Nationalite/Nationality
+Cetatenie/Nationalite Nationality
 Sex/Sexe/ Sex
 Romana
 1

@@ -51,6 +51,8 @@ def detectMRZ(image_path):
     cnts = imutils.grab_contours(cnts)
     cnts = sorted(cnts, key=cv2.contourArea, reverse=True)
 
+    roi = None
+
     for c in cnts:
         # compute the bounding box of the contour and use the contour to
         # compute the aspect ratio and coverage ratio of the bounding box
@@ -80,10 +82,14 @@ def detectMRZ(image_path):
 
     # check if roi is defined before attempting to save it
     if roi is not None:
+        print("MRZ Detected")
         roi_output_path = "output_roi.jpg"
         cv2.imwrite(roi_output_path, roi)
         print(f"ROI saved to {roi_output_path}")
-        return roi
+        return readMRZ(roi)
+        # return roi
+
+    print("MRZ NOT Detected")
 
 def readMRZ(imageMRZ):
     reader = easyocr.Reader(['en'])
