@@ -89,8 +89,9 @@ def detectFaces(img):
         cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 3)
 
     print("Number of faces detected:", len(faces))
+    x2=None
 
-
+    print(faces)
     #Get faces coordinates
     for i, (x, y, w, h) in enumerate(faces, 1):
         print(f"Face {i}: x={x}, y={y}, width={w}, height={h}")
@@ -106,22 +107,25 @@ def detectFaces(img):
             h2 = h
 
     face1 = (x1, y1, w1, h1)
-    face2 = (x2, y2, w2, h2)
+    X, Y, W, H = face1
 
-    #Check which face is more on the left and use that one for refference
-    if is_face_inside(face1, face2):
-        print("Face 1 is inside Face 2")
-        X, Y, W, H = face1
-    elif is_face_inside(face2, face1):
-        print("Face 2 is inside Face 1")
-        X, Y, W, H = face2
-    else:
-        if x1 < x2:
-            print("Face 1 is more on the left")
+    if x2 is not None:
+        face2 = (x2, y2, w2, h2)
+
+        #Check which face is more on the left and use that one for refference
+        if is_face_inside(face1, face2):
+            print("Face 1 is inside Face 2")
             X, Y, W, H = face1
-        else:
-            print("Face 2 is more on the left")
+        elif is_face_inside(face2, face1):
+            print("Face 2 is inside Face 1")
             X, Y, W, H = face2
+        else:
+            if x1 < x2:
+                print("Face 1 is more on the left")
+                X, Y, W, H = face1
+            else:
+                print("Face 2 is more on the left")
+                X, Y, W, H = face2
 
     #TODO: gaseste o formula mai buna sau scapa de formula
     #imparte in cele 3+1 cadrane imaginea
@@ -143,10 +147,12 @@ def detectFaces(img):
     get_cropped_picture(input_image_path, "InfoCrop.jpg", X + W + int(W * 0.25), Y - int(H * 0.5),
                         X + int(5.25 * W), Y + int(2.23 * H))
 
-    rotatedImage = ImageOrientation.rotateImg("InfoCrop.jpg", img)
+    # rotatedImage = ImageOrientation.rotateImg("InfoCrop.jpg", img)
+    rotatedImage = ImageOrientation.align_image(img)
     cv2.imwrite("rotatedImage.jpg", rotatedImage)
 
     gray = cv2.cvtColor(rotatedImage, cv2.COLOR_BGR2GRAY)
+    # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     output_path = 'gray_image.jpg'
     cv2.imwrite(output_path, gray)
 
@@ -181,7 +187,7 @@ def getInfoFromText(personal_information):
                 personal_information['last_name'] = lines[i + 2].strip()
             else:
                 personal_information['last_name'] = next_line
-        elif current_line.startswith("Pre"):
+        elif current_line.startswith("Pr"):
             personal_information['first_name'] = next_line
         elif current_line.startswith("Cet"):
             personal_information['nationality'] = lines[i + 2].strip()
@@ -257,7 +263,7 @@ def getInfoFromCI(img):
         id=id
     )
 
-    print(Person1)
+    # print(Person1)
 
     personal_information['seria'] = Person1.get_seria()
     personal_information['nr'] = Person1.get_nr()

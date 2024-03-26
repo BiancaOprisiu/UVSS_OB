@@ -18,7 +18,7 @@ class PersonalInformation:
         return f"Seria: {self._seria}\nNr: {self._nr}\nCNP: {self._cnp}\nSex: {self._sex}\n" \
                f"Last Name: {self._last_name}\nFirst Name: {self._first_name}\nNationality: {self._nationality}\n" \
                f"Place of birth: {self._place_of_birth}\nAddress: {self._address}\nIssued by: {self._issued_by}\n" \
-               f"Validity: {self._validity}\nValidation field: {self._mrz}\nId: {self._id}"
+               f"Validity: {self._validity}\nMRZ: {self._mrz}\nId: {self._id}"
 
     def get_seria(self):
         return self._seria

@@ -10,6 +10,9 @@ from PersonalInformation import PersonalInformation
 # rotatedImage=ImageOrientation.rotateImg(img)
 # image_path = "D:\Bia\College\Licenta\CI_DataSet\IDcard\WhatsApp Image 2023-03-28 at 15.07.30.jpeg"
 image_path='D:\Bia\College\Licenta\Buletine\WhatsApp Image 2023-03-28 at 15.07.27.jpeg'
+image_path='D:\Bia\College\Licenta\Buletine\WhatsApp Image 2023-03-24 at 11.50.07.jpeg'
+image_path='D:\Bia\College\Licenta\CI_Pictures_Costin\RK756289_White.jpg'
+# image_path='D:\Bia\College\Licenta\CI_Pictures_Costin\SB335115_White.jpg'
 
 image = cv2.imread(image_path)
 
@@ -35,3 +38,4 @@ Person1 = PersonalInformation(
     )
 
 print("SFARSIT")
+print(Person1)
