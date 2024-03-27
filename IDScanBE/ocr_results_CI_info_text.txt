@@ -1,33 +1,24 @@
-5
-CARTE
-de IdENtitate
-idenrdy
-D derTite
-SERIA RK
+Al
+D'IDENTITE
+SERIA
+SB
 NR
-756289
+936387
 CNP
-2940921324815
-M4H43
-Nume Nom Last name
-MIHAZLOVom First name
-Prenumef
-ANA-VERA
-Sex/Sexe Sex
-Cetatenie Nationallte Nationality
-F
+6020528324792
+NOO1
+Numo/NomiLast name
+OPRISIU
+Pronumo Prenom Firat name
+BIANCA-ELENA
+Cetatenie Nalionalite Nationality
 Romana
-1 ROU
-Place ol birth 
-LOc nastere Lieu de naissancel
-Jud:SB Mun Sibiu
-Domiciliu  Adresse/Address
-Str Maior Vasile Bacila
-Mun Bucuresti
-nr.13 bL.19 SC.2 et.5-6
-Valabilitate Validite Validity
-Emisa delDelivree parllssued by
-05.07.21-21.09.2031
-S.P.C.E.P: Sector 2
-Sec.2
-ap.M1
+1
+ROU
+Loc nastoro/Lieu de narssanco Place 0l birth
+Jud.SB Mun Sibiu
+Domiciliu Adresse Address
+Jud.SB Mun Sibiu
+Str George Mihail Zamfirescu nr.12
+Emisa delDelivree parlissued by
+ValabilitatelV
