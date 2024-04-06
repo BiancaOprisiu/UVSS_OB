@@ -69,6 +69,7 @@ def get_cnp_checksum(cnp):
     return 1 if checksum == 10 else checksum
 
 # Example usage:
-cnp_list = [1234567890123, 1234567890124, 2940921324815, 6020528324792]  # List of CNP numbers
+cnp_list = [923456789012, 693456789012, 610956789012, 6020528879012, 6020528324792]  # List of CNP numbers
 results = check_cnp_is_valid(cnp_list)
 print(results)
+
